@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 interface ImageCarouselProps {
   images?: string[];
@@ -45,12 +44,10 @@ export default function ImageCarousel({
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <Image
+          <img
             src={image}
             alt={`Carousel image ${index + 1}`}
-            fill
-            className="object-cover"
-            priority={index === 0}
+            className="w-full h-full object-cover"
           />
         </div>
       ))}
