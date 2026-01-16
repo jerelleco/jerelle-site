@@ -1,0 +1,17 @@
+{
+  "id": "video-production",
+  "title": "Video Production",
+  "slug": "video-production",
+  "description": "Your competitors are posting video every week. Some of them aren't even that good. Imagine what happens when you show up with something actually worth watching.",
+  "price": "Starting at $1,500",
+  "features": [
+    "Brand Story Videos",
+    "Customer Testimonials",
+    "Product Demos",
+    "Social Media Clips"
+  ],
+  "image": "/images/services/video-production.jpg",
+  "imagePosition": "right",
+  "active": true,
+  "order": 2
+}

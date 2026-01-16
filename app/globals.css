@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-dark: #1c1c1c;
+  --color-accent: #12deba;
+  --color-light: #ffffff;
+  --color-bg-dark: #0a0a0a;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg-dark);
+}
+
+body {
+  color: var(--color-light);
+  background: var(--color-bg-dark);
+  overflow-x: hidden;
+}
+
+.font-accent {
+  font-family: var(--font-ooh-baby);
+}
+
+.cursor-dismiss {
+  cursor: pointer;
+  user-select: none;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 40px rgba(18, 222, 186, 0.3);
+}
+
+.text-shadow-dark {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* @media (min-width: 1024px) {
+  * {
+    cursor: none !important;
+  }
+}
+*/
+
+* {
+  cursor: default !important;
+}
+
+a, button, [role="button"], [data-magnetic="true"] {
+  cursor: pointer !important;
+}

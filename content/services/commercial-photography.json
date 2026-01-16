@@ -1,0 +1,17 @@
+{
+  "id": "commercial-photography",
+  "title": "Commercial Photography",
+  "slug": "commercial-photography",
+  "description": "Your products deserve better than iPhone pics on a white bedsheet. Professional imagery that makes customers stop scrolling and start buying.",
+  "price": "Starting at $750",
+  "features": [
+    "Product Photography",
+    "Brand Lifestyle Shoots",
+    "Team Headshots",
+    "Location Photography"
+  ],
+  "image": "/images/services/commercial-photography.jpg",
+  "imagePosition": "left",
+  "active": true,
+  "order": 1
+}

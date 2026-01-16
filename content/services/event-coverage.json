@@ -1,0 +1,17 @@
+{
+  "id": "event-coverage",
+  "title": "Event Coverage",
+  "slug": "event-coverage",
+  "description": "You put months into planning this event. Without proper coverage, it becomes a memory instead of a marketing asset. We make sure you get both.",
+  "price": "Starting at $1,000",
+  "features": [
+    "Corporate Events",
+    "Trade Shows",
+    "Grand Openings",
+    "Community Events"
+  ],
+  "image": "/images/services/event-coverage.jpg",
+  "imagePosition": "right",
+  "active": true,
+  "order": 4
+}

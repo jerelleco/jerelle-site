@@ -1,0 +1,17 @@
+{
+  "id": "social-content-creation",
+  "title": "Social Content Creation",
+  "slug": "social-content-creation",
+  "description": "You know you should be posting more. Your marketing person knows it too. But between everything else on their plate, content keeps slipping. We fix that.",
+  "price": "Starting at $500/month",
+  "features": [
+    "Monthly Content Batches",
+    "Reels and Short Form Video",
+    "Content Strategy",
+    "Ready to Post Files"
+  ],
+  "image": "/images/services/social-content.jpg",
+  "imagePosition": "left",
+  "active": true,
+  "order": 3
+}

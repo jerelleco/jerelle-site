@@ -1,0 +1,44 @@
+{
+  "steps": [
+    {
+      "number": "01",
+      "title": "Discovery",
+      "description": "We hop on a call. You tell me what you're trying to accomplish. I tell you honestly if I can help. No pitch, no pressure.",
+      "details": [
+        "Understand your goals",
+        "Define project scope",
+        "Set clear expectations"
+      ]
+    },
+    {
+      "number": "02",
+      "title": "Planning",
+      "description": "We figure out exactly what we need to capture, when, and where. You'll know the plan before we show up with cameras.",
+      "details": [
+        "Create shot list",
+        "Schedule production",
+        "Handle the logistics"
+      ]
+    },
+    {
+      "number": "03",
+      "title": "Production",
+      "description": "We show up, we shoot, we stay out of your way as much as possible. Your team keeps working. We get what we need.",
+      "details": [
+        "Professional crew",
+        "Efficient on location",
+        "Minimal disruption"
+      ]
+    },
+    {
+      "number": "04",
+      "title": "Delivery",
+      "description": "You get polished files your marketing person can actually use. Sized right, formatted right, ready to post or send to print.",
+      "details": [
+        "Professional editing",
+        "Revisions included",
+        "Files you can use immediately"
+      ]
+    }
+  ]
+}

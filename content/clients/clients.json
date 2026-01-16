@@ -1,0 +1,26 @@
+{
+  "clients": [
+    {"name": "Airtech", "logo": "/logos/clients/airtech.png"},
+    {"name": "Alberta Expo", "logo": "/logos/clients/alberta-expo.png"},
+    {"name": "Clint Black", "logo": "/logos/clients/clint-black.png"},
+    {"name": "Community Foundation", "logo": "/logos/clients/community-foundation.png"},
+    {"name": "GCC", "logo": "/logos/clients/gcc.png"},
+    {"name": "Halo", "logo": "/logos/clients/halo.png"},
+    {"name": "Home & Garden Show", "logo": "/logos/clients/home-garden.png"},
+    {"name": "Olde Towne", "logo": "/logos/clients/olde-towne.png"},
+    {"name": "Progress", "logo": "/logos/clients/progress.png"},
+    {"name": "Ramton", "logo": "/logos/clients/ramton.png"},
+    {"name": "Visit Lethbridge", "logo": "/logos/clients/visit-lethbridge.png"},
+    {"name": "YWCA", "logo": "/logos/clients/ywca.png"}
+  ],
+  "whiteLogos": [
+    "/logos/clients/airtech.png",
+    "/logos/clients/community-foundation.png",
+    "/logos/clients/halo.png",
+    "/logos/clients/progress.png",
+    "/logos/clients/visit-lethbridge.png",
+    "/logos/clients/alberta-expo.png",
+    "/logos/clients/olde-towne.png",
+    "/logos/clients/gcc.png"
+  ]
+}
