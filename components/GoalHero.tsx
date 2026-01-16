@@ -72,7 +72,7 @@ const goalContent = {
     cta: "Let's talk about your brand",
     secondaryCta: "See the services",
     images: [
-      '/Images/BTSBeau-sBiria CommercialVideo (2).jpg',
+      '/Images/BTSBeausBiriaCommercialVideo2.jpg',
       '/Images/GameConCanadaEventCoverageGamingTournament2.jpg',
       '/Images/MatthewLillard-Interview-Headshot.jpg',
       '/Images/JeremyBTS-ParadeCoverage.jpg'
@@ -148,7 +148,7 @@ const goalContent = {
       '/Images/CedarDiningTable-Product&LifestyleShoot.jpg',
       '/Images/JeremyBTS-ParadeCoverage.jpg',
       '/Images/MatthewLillard-Interview-Headshot.jpg',
-      '/Images/BTSBeau-sBiriaCommercialVideo.jpg'
+      '/Images/BTSBeausBiriaCommercialVideo.jpg'
     ]
   },
   explore: {
