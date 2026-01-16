@@ -12,7 +12,7 @@ interface ServicesRevealProps {
 
 // Image arrays for each service
 const serviceImages: { [key: string]: string[] } = {
-  'social-content': [
+  'social-content-creation': [
     '/Images/WarhammerPaintingEventCoverage.jpg',
     '/Images/JeremyBTS-ParadeCoverage.jpg',
     '/Images/ArchitechturalPhotoBMOCentreCalgary.jpg',
