@@ -37,11 +37,11 @@ const goalContent = {
     cta: "Let's talk about your goals",
     secondaryCta: "See how it works",
     images: [
-      '/images/TaroNoodleHouse-Product Photography-SteamBuns.jpg',
-      '/images/TaroNoodleHouse-ProductPhotography-Steam Buns-PickUp.jpg',
-      '/images/CedarDiningTable-Product&LifestyleShoot.jpg',
-      '/images/SemiTruckRollerPhoto.jpg',
-      '/images/CelebrateDowntownYQLEventCoverage.jpg'
+      '/Images/TaroNoodleHouse-Product Photography-SteamBuns.jpg',
+      '/Images/TaroNoodleHouse-ProductPhotography-Steam Buns-PickUp.jpg',
+      '/Images/CedarDiningTable-Product&LifestyleShoot.jpg',
+      '/Images/SemiTruckRollerPhoto.jpg',
+      '/Images/CelebrateDowntownYQLEventCoverage.jpg'
     ]
   },
   brand: {
@@ -72,10 +72,10 @@ const goalContent = {
     cta: "Let's talk about your brand",
     secondaryCta: "See the services",
     images: [
-      '/images/BTSBeau-sBiria CommercialVideo (2).jpg',
-      '/images/GameConCanadaEventCoverageGamingTournament2.jpg',
-      '/images/MatthewLillard-Interview-Headshot.jpg',
-      '/images/JeremyBTS-ParadeCoverage.jpg'
+      '/Images/BTSBeau-sBiria CommercialVideo (2).jpg',
+      '/Images/GameConCanadaEventCoverageGamingTournament2.jpg',
+      '/Images/MatthewLillard-Interview-Headshot.jpg',
+      '/Images/JeremyBTS-ParadeCoverage.jpg'
     ]
   },
   event: {
@@ -106,15 +106,15 @@ const goalContent = {
     cta: "Let's cover your event",
     secondaryCta: "See event coverage details",
     images: [
-      '/images/GameConCanadaEventCoverageGamingTournament2.jpg',
-      '/images/JeremyBTS-ParadeCoverage.jpg',
-      '/images/GameConCanadaEventCoverage.jpg',
-      '/images/GameConCanadaCosplayEventCoverage.jpg',
-      '/images/GameConCanadaEventCoverage-FasterPurpleWormKillKill.jpg',
-      '/images/GameConCanadaEventCoverage-AleksPaunovic-StevenOgg-MatthewLillard.jpg',
-      '/images/GameConCanadaEventCoverage-WarhammerTournament.jpg',
-      '/images/WarhammerPaintingEventCoverage.jpg',
-      '/images/CelebrateDowntownYQLEventCoverage.jpg'
+      '/Images/GameConCanadaEventCoverageGamingTournament2.jpg',
+      '/Images/JeremyBTS-ParadeCoverage.jpg',
+      '/Images/GameConCanadaEventCoverage.jpg',
+      '/Images/GameConCanadaCosplayEventCoverage.jpg',
+      '/Images/GameConCanadaEventCoverage-FasterPurpleWormKillKill.jpg',
+      '/Images/GameConCanadaEventCoverage-AleksPaunovic-StevenOgg-MatthewLillard.jpg',
+      '/Images/GameConCanadaEventCoverage-WarhammerTournament.jpg',
+      '/Images/WarhammerPaintingEventCoverage.jpg',
+      '/Images/CelebrateDowntownYQLEventCoverage.jpg'
     ]
   },
   content: {
@@ -145,10 +145,10 @@ const goalContent = {
     cta: "Let's fill the content gap",
     secondaryCta: "See content packages",
     images: [
-      '/images/CedarDiningTable-Product&LifestyleShoot.jpg',
-      '/images/JeremyBTS-ParadeCoverage.jpg',
-      '/images/MatthewLillard-Interview-Headshot.jpg',
-      '/images/BTSBeau-sBiriaCommercialVideo.jpg'
+      '/Images/CedarDiningTable-Product&LifestyleShoot.jpg',
+      '/Images/JeremyBTS-ParadeCoverage.jpg',
+      '/Images/MatthewLillard-Interview-Headshot.jpg',
+      '/Images/BTSBeau-sBiriaCommercialVideo.jpg'
     ]
   },
   explore: {

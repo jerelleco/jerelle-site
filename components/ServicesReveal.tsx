@@ -13,39 +13,39 @@ interface ServicesRevealProps {
 // Image arrays for each service
 const serviceImages: { [key: string]: string[] } = {
   'social-content': [
-    '/images/WarhammerPaintingEventCoverage.jpg',
-    '/images/JeremyBTS-ParadeCoverage.jpg',
-    '/images/ArchitechturalPhotoBMOCentreCalgary.jpg',
-    '/images/SemiTruckRollerPhoto.jpg',
-    '/images/BTSBeausBiriaCommercialVideo2.jpg',
-    '/images/BTSContentCreation.jpg',
-    '/images/ArchitechturalPhotoBMOCentreCalgaryPerson.jpg'
+    '/Images/WarhammerPaintingEventCoverage.jpg',
+    '/Images/JeremyBTS-ParadeCoverage.jpg',
+    '/Images/ArchitechturalPhotoBMOCentreCalgary.jpg',
+    '/Images/SemiTruckRollerPhoto.jpg',
+    '/Images/BTSBeausBiriaCommercialVideo2.jpg',
+    '/Images/BTSContentCreation.jpg',
+    '/Images/ArchitechturalPhotoBMOCentreCalgaryPerson.jpg'
   ],
 
   'video-production': [
-    '/images/JeremyBTS-ParadeCoverage.jpg',
-    '/images/BTSContentCreation.jpg',
-    '/images/BTSBeausBiriaCommercialVideo2.jpg',
-    '/images/SemiTruckRollerPhoto.jpg'
+    '/Images/JeremyBTS-ParadeCoverage.jpg',
+    '/Images/BTSContentCreation.jpg',
+    '/Images/BTSBeausBiriaCommercialVideo2.jpg',
+    '/Images/SemiTruckRollerPhoto.jpg'
   ],
   'commercial-photography': [
-    '/images/ArchitechturalPhotoBMOCentreCalgaryBUILDING.jpg',
-    '/images/TaroNoodleHouse-Product Photography-SteamBuns.jpg',
-    '/images/SemiTruckRollerPhoto.jpg',
-    '/images/CedarDiningTable-Product&LifestyleShoot.jpg',
-    '/images/TaroNoodleHouse-ProductPhotography-Steam Buns-PickUp.jpg',
-    '/images/LegendWater-ProductShot.jpg',
-    '/images/ArchitechturalPhotoBMOCentreCalgaryPerson.jpg'
+    '/Images/ArchitechturalPhotoBMOCentreCalgaryBUILDING.jpg',
+    '/Images/TaroNoodleHouse-Product Photography-SteamBuns.jpg',
+    '/Images/SemiTruckRollerPhoto.jpg',
+    '/Images/CedarDiningTable-Product&LifestyleShoot.jpg',
+    '/Images/TaroNoodleHouse-ProductPhotography-Steam Buns-PickUp.jpg',
+    '/Images/LegendWater-ProductShot.jpg',
+    '/Images/ArchitechturalPhotoBMOCentreCalgaryPerson.jpg'
   ],
   'event-coverage': [
-    '/images/GameConCanadaEventCoverage-WarhammerTournament.jpg',
-    '/images/GameConCanadaEventCoverage.jpg',
-    '/images/GameConCanadaEventCoverageGamingTournament2.jpg',
-    '/images/GameConCanadaEventCoverage-AleksPaunovic-StevenOgg-MatthewLillard.jpg',
-    '/images/GameConCanadaEventCoverage-FasterPurpleWormKillKill.jpg',
-    '/images/WarhammerPaintingEventCoverage.jpg',
-    '/images/CelebrateDowntownYQLEventCoverage.jpg',
-    '/images/MatthewLillard-Interview-Headshot.jpg'
+    '/Images/GameConCanadaEventCoverage-WarhammerTournament.jpg',
+    '/Images/GameConCanadaEventCoverage.jpg',
+    '/Images/GameConCanadaEventCoverageGamingTournament2.jpg',
+    '/Images/GameConCanadaEventCoverage-AleksPaunovic-StevenOgg-MatthewLillard.jpg',
+    '/Images/GameConCanadaEventCoverage-FasterPurpleWormKillKill.jpg',
+    '/Images/WarhammerPaintingEventCoverage.jpg',
+    '/Images/CelebrateDowntownYQLEventCoverage.jpg',
+    '/Images/MatthewLillard-Interview-Headshot.jpg'
   ]
 }
 
