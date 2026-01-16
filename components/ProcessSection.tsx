@@ -1,26 +1,32 @@
 'use client'
 
+
 import { motion } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
 import type { ProcessStep } from '@/lib/content'
 
+
 interface ProcessGalleryImage {
   src: string
 }
+
 
 interface ProcessSectionProps {
   steps: ProcessStep[]
   galleryImages: ProcessGalleryImage[]
 }
 
+
 export default function ProcessSection({ steps, galleryImages }: ProcessSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [showHeader, setShowHeader] = useState(false)
 
+
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
+
 
     const handleScroll = () => {
       const rect = container.getBoundingClientRect()
@@ -37,11 +43,13 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
       setShowHeader(sectionHasReachedTop && stillInSection )
     }
 
+
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
 
   // Smooth continuous position with slight snap tendency
   const rawPosition = scrollProgress * steps.length
@@ -52,10 +60,13 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
   const lerpFactor = 0.5
   const smoothPosition = (rawPosition * lerpFactor) + (nearestSlide * (1 - lerpFactor))
 
+
   const repeatedImages = [...galleryImages, ...galleryImages, ...galleryImages]
+
 
   // Calculate progress bar width based on smooth position
   const timelineProgress = Math.min(100, (smoothPosition / (steps.length - 1)) * 100)
+
 
   return (
     <section 
@@ -82,6 +93,7 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
         </div>
       </div>
 
+
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
         <div className="flex-1 overflow-hidden relative">
           <div 
@@ -103,7 +115,7 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
                 key={step.number}
                 className="flex-shrink-0 w-screen h-full flex items-center justify-center relative"
               >
-                <div className="container mx-auto px-6 md:px-12 max-w-4xl relative z-10 pb-64 pt-48">
+                <div className="container mx-auto px-6 md:px-12 max-w-4xl relative z-10 pb-48 md:pb-64 pt-48">
                   {/* Number circle and title on same line */}
                   <div className="flex items-center gap-6 mb-6">
                     <div className="flex-shrink-0">
@@ -116,9 +128,11 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
                     </h3>
                   </div>
 
+
                   <p className="text-lg md:text-xl text-white/70 mb-8 leading-relaxed max-w-2xl">
                     {step.description}
                   </p>
+
 
                   <ul className="space-y-3">
                     {step.details.map((detail, i) => (
@@ -134,8 +148,9 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
           </div>
         </div>
 
-        {/* HORIZONTAL TIMELINE - Positioned with inline style */}
-        <div className="absolute left-0 right-0 px-12 z-20" style={{ bottom: '220px' }}>
+
+        {/* HORIZONTAL TIMELINE - Responsive positioning */}
+        <div className="absolute left-0 right-0 px-6 md:px-12 z-20 bottom-[180px] md:bottom-[220px]">
           <div className="relative max-w-6xl mx-auto">
             {/* Background line */}
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-white/10 -translate-y-1/2" />
@@ -151,19 +166,19 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
               {steps.map((step, i) => (
                 <div key={i} className="flex flex-col items-center">
                   <div 
-                    className={`w-10 h-10 rounded-full border-2 transition-all duration-500 flex items-center justify-center ${
+                    className={`w-8 h-8 md:w-10 md:h-10 rounded-full border-2 transition-all duration-500 flex items-center justify-center ${
                       i <= activeSlide 
                         ? 'bg-[#12deba] border-[#12deba] shadow-lg shadow-[#12deba]/50' 
                         : 'bg-black border-white/20'
                     }`}
                   >
-                    <span className={`font-accent text-base transition-colors duration-500 leading-none ${
+                    <span className={`font-accent text-sm md:text-base transition-colors duration-500 leading-none ${
                       i <= activeSlide ? 'text-black' : 'text-white/40'
                     }`}>
                       {step.number}
                     </span>
                   </div>
-                  <span className={`text-xs mt-2 font-mono transition-colors duration-500 ${
+                  <span className={`text-[10px] md:text-xs mt-2 font-mono transition-colors duration-500 ${
                     i <= activeSlide ? 'text-[#12deba]' : 'text-white/40'
                   }`}>
                     {step.title}
@@ -174,10 +189,11 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
           </div>
         </div>
 
-        {/* Scrolling Gallery at Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-60 bg-gradient-to-t from-black/80 to-transparent overflow-hidden">
+
+        {/* Scrolling Gallery at Bottom - Reduced size on mobile */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 md:h-60 bg-gradient-to-t from-black/80 to-transparent overflow-hidden">
           <div 
-            className="flex h-full items-center gap-4 transition-transform duration-300 ease-out px-4"
+            className="flex h-full items-center gap-3 md:gap-4 transition-transform duration-300 ease-out px-3 md:px-4"
             style={{
               transform: `translateX(-${smoothPosition * 12.5}%)`,
               width: 'max-content'
@@ -186,12 +202,12 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
             {repeatedImages.map((image, index) => (
               <div
                 key={index}
-                className="relative h-48 flex-shrink-0 rounded-lg overflow-hidden border border-white/10"
+                className="relative h-36 md:h-48 flex-shrink-0 rounded-lg overflow-hidden border border-white/10"
               >
                 <img
                   src={image.src}
                   alt={`Event photography ${index + 1}`}
-                  className="h-48 w-auto object-cover rounded-lg"
+                  className="h-36 md:h-48 w-auto object-cover rounded-lg"
                 />
               </div>
             ))}
