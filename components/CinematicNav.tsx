@@ -1,15 +1,19 @@
 'use client'
 
+
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+
 
 interface CinematicNavProps {
   onLogoClick?: () => void
 }
 
+
 export default function CinematicNav({ onLogoClick }: CinematicNavProps) {
   const [scrolled, setScrolled] = useState(false)
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +23,7 @@ export default function CinematicNav({ onLogoClick }: CinematicNavProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -26,14 +31,14 @@ export default function CinematicNav({ onLogoClick }: CinematicNavProps) {
     }
   }
 
+
   const handleLogoClick = () => {
-    // Call parent reset function if provided
     if (onLogoClick) {
       onLogoClick()
     }
-    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
 
   return (
     <motion.nav
@@ -45,54 +50,62 @@ export default function CinematicNav({ onLogoClick }: CinematicNavProps) {
       }`}
     >
       <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <motion.button
-            onClick={handleLogoClick}
-            className="relative group transition-all"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Image
-              src="/logos/Jerelle Logos/Jerelle.co (WHITE).svg"
-              alt="Jerelle.co"
-              width={120}
-              height={40}
-              className="h-8 w-auto brightness-100 group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:hue-rotate-[140deg] group-hover:saturate-[500%] transition-all duration-300"
-              priority
-              style={{
-                filter: 'brightness(1)',
-              }}
-            />
-          </motion.button>
-
-          {/* Center Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection('services')}
-              className="text-sm uppercase tracking-wider hover:text-[#12deba] transition-colors"
+        {/* Three-column grid layout */}
+        <div className="grid grid-cols-3 items-center">
+          
+          {/* Left - Logo */}
+          <div className="flex justify-start">
+            <motion.button
+              onClick={handleLogoClick}
+              className="relative group transition-all"
+              whileHover={{ scale: 1.05 }}
             >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection('process')}
-              className="text-sm uppercase tracking-wider hover:text-[#12deba] transition-colors"
-            >
-              Process
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-sm uppercase tracking-wider hover:text-[#12deba] transition-colors"
-            >
-              About
-            </button>
+              <Image
+                src="/logos/Jerelle Logos/Jerelle.co (WHITE).svg"
+                alt="Jerelle.co"
+                width={120}
+                height={40}
+                className="h-8 w-auto brightness-100 group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:hue-rotate-[140deg] group-hover:saturate-[500%] transition-all duration-300"
+                priority
+                style={{
+                  filter: 'brightness(1)',
+                }}
+              />
+            </motion.button>
           </div>
 
-          {/* Right Side - Contact Info & CTA */}
-          <div className="flex items-center gap-6">
+
+          {/* Center - Navigation Links */}
+          <div className="flex justify-center">
+            <div className="hidden lg:flex items-center gap-8">
+              <button
+                onClick={() => scrollToSection('services')}
+                className="text-sm uppercase tracking-wider hover:text-[#12deba] transition-colors"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => scrollToSection('process')}
+                className="text-sm uppercase tracking-wider hover:text-[#12deba] transition-colors"
+              >
+                Process
+              </button>
+              <button
+                onClick={() => scrollToSection('about')}
+                className="text-sm uppercase tracking-wider hover:text-[#12deba] transition-colors"
+              >
+                About
+              </button>
+            </div>
+          </div>
+
+
+          {/* Right - Contact Info & CTA */}
+          <div className="flex justify-end items-center gap-6">
             {/* Contact Info - Hidden on mobile */}
             <div className="hidden md:flex flex-col items-end gap-1">
               <a
-                href="tel:14035551234"
+                href="tel:3065151774"
                 className="text-sm text-white/60 hover:text-[#12deba] transition-colors font-mono"
               >
                 306 515-1774
@@ -104,6 +117,7 @@ export default function CinematicNav({ onLogoClick }: CinematicNavProps) {
                 hello@jerelle.co
               </a>
             </div>
+
 
             {/* Contact Button - Highlighted */}
             <button

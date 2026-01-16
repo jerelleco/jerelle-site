@@ -1,17 +1,22 @@
 'use client'
 
+
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import PathSelector from './PathSelector'
+import MagneticButton from './MagneticButton'
+
 
 interface CinematicHeroProps {
   onPathSelect: (path: 'customers' | 'brand' | 'event' | 'content' | 'explore') => void
 }
 
+
 export default function CinematicHero({ onPathSelect }: CinematicHeroProps) {
   const [showPaths, setShowPaths] = useState(false)
   const [celebrating, setCelebrating] = useState(false)
   const [selectedGoal, setSelectedGoal] = useState<string>('')
+
 
   const handlePathSelect = (path: 'customers' | 'brand' | 'event' | 'content' | 'explore') => {
     const goalLabels = {
@@ -22,13 +27,16 @@ export default function CinematicHero({ onPathSelect }: CinematicHeroProps) {
       explore: 'Just Exploring'
     }
 
+
     setSelectedGoal(goalLabels[path])
     setCelebrating(true)
+
 
     setTimeout(() => {
       setCelebrating(false)
       setShowPaths(false)
       onPathSelect(path)
+
 
       setTimeout(() => {
         window.scrollTo({
@@ -38,6 +46,7 @@ export default function CinematicHero({ onPathSelect }: CinematicHeroProps) {
       }, 300)
     }, 1500)
   }
+
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-[#0a0a0a] to-black">
@@ -69,6 +78,7 @@ export default function CinematicHero({ onPathSelect }: CinematicHeroProps) {
         />
       </div>
 
+
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
         <AnimatePresence mode="wait">
@@ -97,6 +107,7 @@ export default function CinematicHero({ onPathSelect }: CinematicHeroProps) {
                 {selectedGoal}
               </motion.h2>
 
+
               <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -105,6 +116,7 @@ export default function CinematicHero({ onPathSelect }: CinematicHeroProps) {
               >
                 Personalizing your experience...
               </motion.p>
+
 
               {[...Array(12)].map((_, i) => (
                 <motion.div
@@ -150,33 +162,34 @@ export default function CinematicHero({ onPathSelect }: CinematicHeroProps) {
                 <span className="text-[#12deba] font-accent">We make sure it gets told right.</span>
               </motion.h1>
 
-              {/* Subheadline */}
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.4 }}
-  className="flex flex-col gap-8 text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto"
->
-  <p>Commercials. Brand films. Social content.</p>
-  <p>Professional video and photo production for businesses ready to show up bigger.</p>
-</motion.div>
 
-              {/* CTA */}
+              {/* Subheadline */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex flex-col gap-8 text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto"
+              >
+                <p>Commercials. Brand films. Social content.</p>
+                <p>Professional video and photo production for businesses ready to show up bigger.</p>
+              </motion.div>
+
+
+              {/* CTA - Now with MagneticButton */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <button
+                <MagneticButton
                   onClick={() => setShowPaths(true)}
-                  data-magnetic="true"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#12deba]/50 transition-shadow text-lg"
                 >
                   What brings you here today?
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </button>
+                </MagneticButton>
               </motion.div>
             </motion.div>
           ) : (
@@ -203,7 +216,9 @@ export default function CinematicHero({ onPathSelect }: CinematicHeroProps) {
                 Pick the one that fits. I'll show you what's worked for businesses like yours.
               </motion.p>
 
+
               <PathSelector onPathSelect={handlePathSelect} />
+
 
               <motion.button
                 initial={{ opacity: 0 }}
