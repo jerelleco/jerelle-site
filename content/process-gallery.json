@@ -1,10 +1,10 @@
 {
   "images": [
-    { "src": "/images/process-gallery/AleksPaunovic.png" },
-    { "src": "/images/process-gallery/ChadBrownlee.png" },
-    { "src": "/images/process-gallery/PowWow.png" },
-    { "src": "/images/process-gallery/WhoopUpDays-Midway.png" },
-    { "src": "/images/process-gallery/WhoopUpDays-Original16stage.png" },
-    { "src": "/images/process-gallery/WhoopUpDaysParade.png" }
+    "/Images/process-gallery/AleksPaunovic.png",
+    "/Images/process-gallery/ChadBrownlee.png",
+    "/Images/process-gallery/PowWow.png",
+    "/Images/process-gallery/WhoopUpDays-Midway.png",
+    "/Images/process-gallery/WhoopUpDays-Original16stage.png",
+    "/Images/process-gallery/WhoopUpDaysParade.png"
   ]
 }
