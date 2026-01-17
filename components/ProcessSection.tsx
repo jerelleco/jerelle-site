@@ -83,10 +83,10 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
             transition={{ duration: 0.3 }}
             className="text-center"
           >
-            <p className="font-accent text-4xl md:text-5xl text-accent mb-2">
+            <p className="font-accent text-3xl md:text-5xl text-accent mb-2">
               How we work together
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-3xl md:text-5xl font-bold text-white">
               Our Process
             </h2>
           </motion.div>
@@ -115,28 +115,28 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
                 key={step.number}
                 className="flex-shrink-0 w-screen h-full flex items-center justify-center relative"
               >
-                <div className="container mx-auto px-6 md:px-12 max-w-4xl relative z-10 pb-48 md:pb-64 pt-48">
-                  {/* Number circle and title on same line */}
-                  <div className="flex items-center gap-6 mb-6">
+                <div className="container mx-auto px-6 md:px-12 max-w-4xl relative z-10 pb-40 md:pb-64 pt-32 md:pt-48">
+                  {/* Number circle and title - SMALLER ON MOBILE */}
+                  <div className="flex items-center gap-4 md:gap-6 mb-4 md:mb-6">
                     <div className="flex-shrink-0">
-                      <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#12deba] to-[#0ea088] rounded-full shadow-2xl shadow-[#12deba]/30">
-                        <span className="font-accent text-4xl font-bold text-black leading-none">{step.number}</span>
+                      <div className="inline-flex items-center justify-center w-14 h-14 md:w-20 md:h-20 bg-gradient-to-br from-[#12deba] to-[#0ea088] rounded-full shadow-2xl shadow-[#12deba]/30">
+                        <span className="font-accent text-2xl md:text-4xl font-bold text-black leading-none">{step.number}</span>
                       </div>
                     </div>
-                    <h3 className="text-4xl md:text-5xl font-bold text-white">
+                    <h3 className="text-3xl md:text-5xl font-bold text-white">
                       {step.title}
                     </h3>
                   </div>
 
 
-                  <p className="text-lg md:text-xl text-white/70 mb-8 leading-relaxed max-w-2xl">
+                  <p className="text-base md:text-xl text-white/70 mb-6 md:mb-8 leading-relaxed max-w-2xl">
                     {step.description}
                   </p>
 
 
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 md:space-y-3">
                     {step.details.map((detail, i) => (
-                      <li key={i} className="flex items-start gap-3 text-base text-white/60">
+                      <li key={i} className="flex items-start gap-3 text-sm md:text-base text-white/60">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#12deba] flex-shrink-0 mt-2" />
                         <span>{detail}</span>
                       </li>
@@ -149,8 +149,8 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
         </div>
 
 
-        {/* HORIZONTAL TIMELINE - Responsive positioning */}
-        <div className="absolute left-0 right-0 px-6 md:px-12 z-20 bottom-[180px] md:bottom-[220px]">
+        {/* HORIZONTAL TIMELINE - Smaller and more compact on mobile */}
+        <div className="absolute left-0 right-0 px-4 md:px-12 z-20 bottom-[170px] md:bottom-[220px]">
           <div className="relative max-w-6xl mx-auto">
             {/* Background line */}
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-white/10 -translate-y-1/2" />
@@ -161,24 +161,24 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
               style={{ width: `${timelineProgress}%` }}
             />
             
-            {/* Step dots */}
+            {/* Step dots - SMALLER ON MOBILE */}
             <div className="relative flex justify-between">
               {steps.map((step, i) => (
                 <div key={i} className="flex flex-col items-center">
                   <div 
-                    className={`w-8 h-8 md:w-10 md:h-10 rounded-full border-2 transition-all duration-500 flex items-center justify-center ${
+                    className={`w-7 h-7 md:w-10 md:h-10 rounded-full border-2 transition-all duration-500 flex items-center justify-center ${
                       i <= activeSlide 
                         ? 'bg-[#12deba] border-[#12deba] shadow-lg shadow-[#12deba]/50' 
                         : 'bg-black border-white/20'
                     }`}
                   >
-                    <span className={`font-accent text-sm md:text-base transition-colors duration-500 leading-none ${
+                    <span className={`font-accent text-xs md:text-base transition-colors duration-500 leading-none ${
                       i <= activeSlide ? 'text-black' : 'text-white/40'
                     }`}>
                       {step.number}
                     </span>
                   </div>
-                  <span className={`text-[10px] md:text-xs mt-2 font-mono transition-colors duration-500 ${
+                  <span className={`text-[9px] md:text-xs mt-1.5 md:mt-2 font-mono transition-colors duration-500 whitespace-nowrap ${
                     i <= activeSlide ? 'text-[#12deba]' : 'text-white/40'
                   }`}>
                     {step.title}
@@ -191,7 +191,7 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
 
 
         {/* Scrolling Gallery at Bottom - Reduced size on mobile */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 md:h-60 bg-gradient-to-t from-black/80 to-transparent overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 h-44 md:h-60 bg-gradient-to-t from-black/80 to-transparent overflow-hidden">
           <div 
             className="flex h-full items-center gap-3 md:gap-4 transition-transform duration-300 ease-out px-3 md:px-4"
             style={{
@@ -202,12 +202,12 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
             {repeatedImages.map((image, index) => (
               <div
                 key={index}
-                className="relative h-36 md:h-48 flex-shrink-0 rounded-lg overflow-hidden border border-white/10"
+                className="relative h-32 md:h-48 flex-shrink-0 rounded-lg overflow-hidden border border-white/10"
               >
                 <img
                   src={image.src}
                   alt={`Event photography ${index + 1}`}
-                  className="h-36 md:h-48 w-auto object-cover rounded-lg"
+                  className="h-32 md:h-48 w-auto object-cover rounded-lg"
                 />
               </div>
             ))}
