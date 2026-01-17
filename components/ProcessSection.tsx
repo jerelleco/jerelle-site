@@ -19,11 +19,8 @@ interface ProcessSectionProps {
 
 export default function ProcessSection({ steps, galleryImages }: ProcessSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [showHeader, setShowHeader] = useState(false)
-  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
-  const [swipeOffset, setSwipeOffset] = useState(0)
 
 
   useEffect(() => {
@@ -39,10 +36,11 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
       
       setScrollProgress(progress)
       
+      // Show header only when section top is above viewport AND we've scrolled past the first 10% of section
       const sectionHasReachedTop = rect.top <= 100
       const stillInSection = rect.bottom > window.innerHeight
       
-      setShowHeader(sectionHasReachedTop && stillInSection)
+      setShowHeader(sectionHasReachedTop && stillInSection )
     }
 
 
@@ -53,83 +51,20 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
   }, [])
 
 
-  // Touch event handlers for mobile swipe
-  useEffect(() => {
-    const content = contentRef.current
-    if (!content) return
-
-
-    const handleTouchStart = (e: TouchEvent) => {
-      setTouchStart({
-        x: e.touches[0].clientX,
-        y: e.touches[0].clientY
-      })
-    }
-
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!touchStart) return
-
-
-      const deltaX = e.touches[0].clientX - touchStart.x
-      const deltaY = e.touches[0].clientY - touchStart.y
-
-
-      // Only handle horizontal swipes (when horizontal movement is greater than vertical)
-      if (Math.abs(deltaX) > Math.abs(deltaY)) {
-        e.preventDefault() // Prevent vertical scroll during horizontal swipe
-        
-        // Calculate swipe offset (negative deltaX because swiping left should move content right)
-        const maxOffset = (steps.length - 1) * 0.2 // Max 0.2 steps per swipe
-        const offset = Math.max(-maxOffset, Math.min(maxOffset, -deltaX / 300))
-        setSwipeOffset(offset)
-      }
-    }
-
-
-    const handleTouchEnd = () => {
-      if (swipeOffset !== 0 && containerRef.current) {
-        // Convert swipe offset to scroll position change
-        const rect = containerRef.current.getBoundingClientRect()
-        const scrollPerStep = (rect.height - window.innerHeight) / steps.length
-        const scrollChange = swipeOffset * scrollPerStep
-        
-        // Smoothly scroll to new position
-        window.scrollBy({
-          top: scrollChange,
-          behavior: 'smooth'
-        })
-      }
-      
-      setTouchStart(null)
-      setSwipeOffset(0)
-    }
-
-
-    content.addEventListener('touchstart', handleTouchStart, { passive: true })
-    content.addEventListener('touchmove', handleTouchMove, { passive: false })
-    content.addEventListener('touchend', handleTouchEnd)
-    
-    return () => {
-      content.removeEventListener('touchstart', handleTouchStart)
-      content.removeEventListener('touchmove', handleTouchMove)
-      content.removeEventListener('touchend', handleTouchEnd)
-    }
-  }, [touchStart, swipeOffset, steps.length])
-
-
-  // Smooth continuous position with swipe offset
-  const rawPosition = (scrollProgress * steps.length) + swipeOffset
+  // Smooth continuous position with slight snap tendency
+  const rawPosition = scrollProgress * steps.length
   const nearestSlide = Math.round(rawPosition)
-  const activeSlide = Math.min(steps.length - 1, Math.max(0, nearestSlide))
+  const activeSlide = Math.min(steps.length - 1, nearestSlide)
   
+  // Lerp between continuous scroll and snapped position (70% continuous, 30% snap)
   const lerpFactor = 0.5
-  const smoothPosition = Math.max(0, Math.min(steps.length - 1, (rawPosition * lerpFactor) + (nearestSlide * (1 - lerpFactor))))
+  const smoothPosition = (rawPosition * lerpFactor) + (nearestSlide * (1 - lerpFactor))
 
 
   const repeatedImages = [...galleryImages, ...galleryImages, ...galleryImages]
 
 
+  // Calculate progress bar width based on smooth position
   const timelineProgress = Math.min(100, (smoothPosition / (steps.length - 1)) * 100)
 
 
@@ -140,7 +75,7 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
       className="relative bg-black"
       style={{ height: `${(steps.length + 0.5) * 60}vh` }}
     >
-      {/* Section Header */}
+      {/* Section Header - Shows only when actively in process section */}
       <div className="fixed top-20 left-0 right-0 z-30 pointer-events-none">
         <div className="container mx-auto px-6">
           <motion.div
@@ -159,10 +94,7 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
       </div>
 
 
-      <div 
-        ref={contentRef}
-        className="sticky top-0 h-screen overflow-hidden flex flex-col touch-pan-y"
-      >
+      <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
         <div className="flex-1 overflow-hidden relative">
           <div 
             className="absolute inset-0 transition-all duration-1000 ease-out"
@@ -184,7 +116,7 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
                 className="flex-shrink-0 w-screen h-full flex items-center justify-center relative"
               >
                 <div className="container mx-auto px-6 md:px-12 max-w-4xl relative z-10 pb-40 md:pb-64 pt-32 md:pt-48">
-                  {/* Number circle and title */}
+                  {/* Number circle and title - SMALLER ON MOBILE */}
                   <div className="flex items-center gap-4 md:gap-6 mb-4 md:mb-6">
                     <div className="flex-shrink-0">
                       <div className="inline-flex items-center justify-center w-14 h-14 md:w-20 md:h-20 bg-gradient-to-br from-[#12deba] to-[#0ea088] rounded-full shadow-2xl shadow-[#12deba]/30">
@@ -217,16 +149,19 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
         </div>
 
 
-        {/* HORIZONTAL TIMELINE */}
+        {/* HORIZONTAL TIMELINE - Smaller and more compact on mobile */}
         <div className="absolute left-0 right-0 px-4 md:px-12 z-20 bottom-[170px] md:bottom-[220px]">
           <div className="relative max-w-6xl mx-auto">
+            {/* Background line */}
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-white/10 -translate-y-1/2" />
             
+            {/* Progress line - smoothly follows position */}
             <div 
               className="absolute top-1/2 left-0 h-0.5 bg-[#12deba] -translate-y-1/2 transition-all duration-300 ease-out"
               style={{ width: `${timelineProgress}%` }}
             />
             
+            {/* Step dots - SMALLER ON MOBILE */}
             <div className="relative flex justify-between">
               {steps.map((step, i) => (
                 <div key={i} className="flex flex-col items-center">
@@ -255,7 +190,7 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
         </div>
 
 
-        {/* Scrolling Gallery at Bottom */}
+        {/* Scrolling Gallery at Bottom - Reduced size on mobile */}
         <div className="absolute bottom-0 left-0 right-0 h-44 md:h-60 bg-gradient-to-t from-black/80 to-transparent overflow-hidden">
           <div 
             className="flex h-full items-center gap-3 md:gap-4 transition-transform duration-300 ease-out px-3 md:px-4"
@@ -279,27 +214,6 @@ export default function ProcessSection({ steps, galleryImages }: ProcessSectionP
           </div>
         </div>
       </div>
-
-
-      {/* Mobile Swipe Hint - Shows briefly on first load */}
-      <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{ delay: 3, duration: 1 }}
-        className="md:hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-40 pointer-events-none"
-      >
-        <div className="bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full border border-[#12deba]/30">
-          <p className="text-xs text-[#12deba] flex items-center gap-2">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
-            </svg>
-            Swipe to navigate
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </p>
-        </div>
-      </motion.div>
     </section>
   )
 }
