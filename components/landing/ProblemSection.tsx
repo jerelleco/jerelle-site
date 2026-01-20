@@ -8,18 +8,23 @@ export default function ProblemSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
-  const problems = [
+  const problems
+  
+  
+  
+  
+  = [
     {
-      highlight: 'Your competitors',
-      text: 'are showing up in feeds every day'
+      highlight: 'Be the first choice',
+      text: 'when customers are ready to buy'
     },
     {
-      highlight: "They're building relationships",
-      text: 'with YOUR potential customers'
+      highlight: 'Build real connections',
+      text: 'with your ideal audience'
     },
     {
-      highlight: "You're invisible",
-      text: 'or worse, forgettable'
+      highlight: 'Stay top of mind',
+      text: 'so they think of you first'
     }
   ]
 
@@ -27,7 +32,7 @@ export default function ProblemSection() {
     <section ref={ref} className="relative py-24 px-6 bg-gradient-to-b from-black via-[#0a0a0a] to-black">
       <div className="container mx-auto max-w-5xl">
         
-        {/* Scannable problem cards */}
+        {/* Goal cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           {problems.map((problem, index) => (
             <motion.div
@@ -51,7 +56,7 @@ export default function ProblemSection() {
           ))}
         </div>
 
-        {/* The kicker */}
+        {/* The vision */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -60,10 +65,10 @@ export default function ProblemSection() {
         >
           <div className="inline-block bg-gradient-to-r from-[#12deba]/10 to-transparent border-l-4 border-[#12deba] pl-6 py-4 text-left">
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed">
-              Most video is just <span className="text-white font-bold">pretty footage</span> with no strategy.
+              Imagine customers <span className="text-white font-bold">already trusting you</span> before they reach out.
             </p>
             <p className="text-lg text-white/60 mt-2">
-              It gets a few likes, then disappears. That's not marketing. <span className="text-[#12deba] font-bold">That's decoration.</span>
+              Strategic video content makes that happen. <span className="text-[#12deba] font-bold">That's the goal.</span>
             </p>
           </div>
         </motion.div>

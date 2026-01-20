@@ -8,6 +8,7 @@ import ProblemSection from '@/components/landing/ProblemSection'
 import SolutionSection from '@/components/landing/SolutionSection'
 import RotatingClients from '@/components/RotatingClients'
 import ProcessSimple from '@/components/landing/ProcessSimple'
+import CtaBanner from '@/components/landing/CtaBanner'
 import FinalCTA from '@/components/landing/FinalCTA'
 import FooterLanding from '@/components/landing/FooterLanding'
 
@@ -65,6 +66,9 @@ export default function DiscoveryPage() {
 
         {/* Simple Process */}
         <ProcessSimple />
+
+        {/* CTA Banner - Push for booking */}
+        <CtaBanner />
 
         {/* Final CTA with Calendly Embed */}
         <FinalCTA />

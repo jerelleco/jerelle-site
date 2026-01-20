@@ -65,3 +65,20 @@ body {
 a, button, [role="button"], [data-magnetic="true"] {
   cursor: pointer !important;
 }
+
+/* Hide Calendly scrollbar */
+.calendly-inline-widget {
+  overflow: hidden !important;
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.calendly-inline-widget::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.calendly-inline-widget iframe {
+  overflow: hidden !important;
+}

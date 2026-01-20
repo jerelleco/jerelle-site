@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import CalendlyButton from '@/components/CalendlyButton'
 
 export default function SolutionSection() {
   const ref = useRef(null)
@@ -40,7 +41,7 @@ export default function SolutionSection() {
               With 10+ years of marketing experience across local shops and multi-million dollar enterprises, I don't just make videos. I create content that actually moves people to action.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-4 mb-8">
               {services.map((service, index) => (
                 <motion.div
                   key={index}
@@ -51,17 +52,17 @@ export default function SolutionSection() {
                 >
                   {/* Teal checkmark */}
                   <div className="w-6 h-6 rounded-full bg-[#12deba]/20 flex items-center justify-center flex-shrink-0">
-                    <svg 
-                      className="w-4 h-4 text-[#12deba]" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-4 h-4 text-[#12deba]"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M5 13l4 4L19 7" 
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
                       />
                     </svg>
                   </div>
@@ -69,6 +70,21 @@ export default function SolutionSection() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.6 }}
+            >
+              <CalendlyButton
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-xl hover:shadow-[#12deba]/30 transition-all"
+              >
+                See How This Works For You
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </CalendlyButton>
+            </motion.div>
           </motion.div>
 
           {/* Right - Image/Visual */}

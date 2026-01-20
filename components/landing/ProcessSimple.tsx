@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import CalendlyButton from '@/components/CalendlyButton'
 
 export default function ProcessSimple() {
   const ref = useRef(null)
@@ -71,10 +72,27 @@ export default function ProcessSimple() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center text-white/50 text-lg"
+          className="text-center text-white/50 text-lg mb-8"
         >
           Straightforward conversation. Zero obligation. If it's not a fit, no hard feelings.
         </motion.p>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center"
+        >
+          <CalendlyButton
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#12deba]/40 transition-all text-lg"
+          >
+            Book Your Free Call
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </CalendlyButton>
+        </motion.div>
       </div>
     </section>
   )
