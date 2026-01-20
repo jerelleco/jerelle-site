@@ -45,8 +45,8 @@ export default function CinematicNav({ onLogoClick }: CinematicNavProps) {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
+        scrolled ? 'bg-black/90 backdrop-blur-md border-white/10' : 'bg-transparent border-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
