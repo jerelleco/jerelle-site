@@ -184,54 +184,59 @@ if (nearestButton) {
   }, [isMouseMoving, isVisible, mousePos.x, mousePos.y])
 
   // Smooth flow animation with swimming motion
+  // TODO: Re-enable swimming toward CTA functionality
+  // The disabled code (lines 97-184 above) finds nearest magnetic button and sets targetPosRef
+  // This useEffect would animate the cursor swimming toward that target with wave motion
   useEffect(() => {
-    if (!isMouseMoving && isVisible) {
-      let animationFrame
+    // DISABLED: Swimming toward CTA - cursor now stays at mouse position
+    // if (!isMouseMoving && isVisible) {
+    //   let animationFrame
+    //
+    //   const animate = () => {
+    //     const currentX = cursorX.get()
+    //     const currentY = cursorY.get()
+    //
+    //     const deltaX = targetPosRef.current.x - currentX
+    //     const deltaY = targetPosRef.current.y - currentY
+    //
+    //     // Calculate perpendicular direction for wave motion
+    //     const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
+    //
+    //     if (distance > 1) {
+    //       const speed = 0.05
+    //
+    //       // Create swimming wave motion
+    //       wavePhaseRef.current += 0.15 // Wave speed
+    //       const waveAmplitude = 15 // Wave size
+    //       const waveOffset = Math.sin(wavePhaseRef.current) * waveAmplitude
+    //
+    //       // Perpendicular direction (rotated 90 degrees)
+    //       const perpX = -deltaY / distance
+    //       const perpY = deltaX / distance
+    //
+    //       // Apply forward movement + wave motion
+    //       const newX = currentX + deltaX * speed + perpX * waveOffset * 0.1
+    //       const newY = currentY + deltaY * speed + perpY * waveOffset * 0.1
+    //
+    //       cursorX.set(newX)
+    //       cursorY.set(newY)
+    //       dotX.set(newX)
+    //       dotY.set(newY)
+    //     }
+    //
+    //     animationFrame = requestAnimationFrame(animate)
+    //   }
+    //
+    //   animationFrame = requestAnimationFrame(animate)
+    //   return () => cancelAnimationFrame(animationFrame)
+    // } else {
 
-      const animate = () => {
-        const currentX = cursorX.get()
-        const currentY = cursorY.get()
-
-        const deltaX = targetPosRef.current.x - currentX
-        const deltaY = targetPosRef.current.y - currentY
-
-        // Calculate perpendicular direction for wave motion
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
-
-        if (distance > 1) {
-          const speed = 0.05
-
-          // Create swimming wave motion
-          wavePhaseRef.current += 0.15 // Wave speed
-          const waveAmplitude = 15 // Wave size
-          const waveOffset = Math.sin(wavePhaseRef.current) * waveAmplitude
-
-          // Perpendicular direction (rotated 90 degrees)
-          const perpX = -deltaY / distance
-          const perpY = deltaX / distance
-
-          // Apply forward movement + wave motion
-          const newX = currentX + deltaX * speed + perpX * waveOffset * 0.1
-          const newY = currentY + deltaY * speed + perpY * waveOffset * 0.1
-
-          cursorX.set(newX)
-          cursorY.set(newY)
-          dotX.set(newX)
-          dotY.set(newY)
-        }
-
-        animationFrame = requestAnimationFrame(animate)
-      }
-
-      animationFrame = requestAnimationFrame(animate)
-      return () => cancelAnimationFrame(animationFrame)
-    } else {
-      // When moving, instantly follow mouse
-      cursorX.set(mousePos.x)
-      cursorY.set(mousePos.y)
-      dotX.set(mousePos.x)
-      dotY.set(mousePos.y)
-    }
+    // Always follow mouse position (swimming disabled)
+    cursorX.set(mousePos.x)
+    cursorY.set(mousePos.y)
+    dotX.set(mousePos.x)
+    dotY.set(mousePos.y)
+    // }
   }, [isMouseMoving, isVisible, mousePos.x, mousePos.y, cursorX, cursorY, dotX, dotY])
 
   return (

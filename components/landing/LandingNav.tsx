@@ -33,7 +33,7 @@ export default function LandingNav() {
 
           {/* CTA Button */}
           <CalendlyButton
-            className="px-5 py-2.5 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-lg hover:shadow-[#12deba]/30 transition-all text-sm"
+            className="px-5 py-2.5 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#FF6B6B]/30 transition-all text-sm"
           >
             Book a Call
           </CalendlyButton>

@@ -40,33 +40,23 @@ export default function DiscoveryHero() {
             className="order-2 lg:order-1"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Make Your Brand Feel Familiar
+              You Don't Need a Photographer.
               <br />
-              <span className="text-[#12deba] font-accent text-3xl md:text-4xl lg:text-5xl">
-                Before Customers Walk Through the Door
+              <span className="text-[#12deba]">
+                You Need a Story That Sells.
               </span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/70 mb-8 leading-relaxed">
-              Strategic video content that builds trust and drives real results for Southern Alberta businesses.
+              Most businesses struggle with content that gets ignored or competitors pulling ahead. We fix that with story-driven commercials and marketing campaigns that turn viewers into customers.
             </p>
-
-            {/* Urgency callout */}
-            <div className="bg-gradient-to-r from-[#12deba]/10 to-transparent border-l-4 border-[#12deba] pl-6 py-4 mb-8">
-              <p className="text-white font-bold text-lg mb-1 flex items-center gap-2">
-                <span>🎯</span> Only Taking On 3 New Clients This Month
-              </p>
-              <p className="text-white/60">
-                Not a fake countdown. Not a marketing trick. Just capacity.
-              </p>
-            </div>
 
             {/* CTA Button */}
             <MagneticButton asWrapper>
               <CalendlyButton
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#12deba]/50 transition-all text-lg group"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-full hover:shadow-2xl hover:shadow-[#FF6B6B]/50 transition-all text-lg group"
               >
-                Book Your Free Discovery Call
+                Let's Talk About Your Business
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -110,7 +100,7 @@ export default function DiscoveryHero() {
                       <motion.div
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
-                        className="w-20 h-20 bg-gradient-to-r from-[#12deba] to-[#0ea088] rounded-full flex items-center justify-center shadow-2xl shadow-[#12deba]/50"
+                        className="w-20 h-20 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] rounded-full flex items-center justify-center shadow-2xl shadow-[#FF6B6B]/50"
                       >
                         <svg className="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z" />

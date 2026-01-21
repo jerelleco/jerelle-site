@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useEffect } from 'react'
+import Image from 'next/image'
 import CalendlyInline from '@/components/CalendlyInline'
 
 export default function FinalCTA() {
@@ -34,17 +35,34 @@ export default function FinalCTA() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Stand Out?
+          {/* Centered moustache for final CTA */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/big-moustache-12deba.png"
+              alt=""
+              width={60}
+              height={30}
+              className="opacity-60"
+            />
+          </div>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 text-center">
+            Ready to Stop Getting Ignored?
           </h2>
 
-          {/* Urgency badge */}
-          <div className="inline-flex items-center gap-2 bg-[#12deba]/10 border border-[#12deba]/30 rounded-full px-6 py-3 mb-8">
-            <span className="text-xl">🎯</span>
-            <span className="text-[#12deba] font-bold">Only 3 spots available this month</span>
-          </div>
+          <p className="text-lg text-white/70 leading-relaxed max-w-2xl mx-auto mb-4 text-center">
+            Let's talk about what you're actually trying to achieve.
+          </p>
+
+          <p className="text-white/60 leading-relaxed max-w-2xl mx-auto mb-6 text-center">
+            Not what shots you want. Not what your Pinterest board looks like. What business result you need. What story will get you there. And how we're going to tell it.
+          </p>
+
+          <p className="text-white/40 text-sm text-center">
+            No fluff. No corporate BS. Just real conversation.
+          </p>
         </motion.div>
 
         {/* Calendly Embed */}
