@@ -4,7 +4,7 @@ import Script from 'next/script'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect, Suspense } from 'react'
 
-const PIXEL_ID = '2032984987497584'
+const PIXEL_ID = '3813181512316819'
 
 function MetaPixelTracking() {
   const pathname = usePathname()
