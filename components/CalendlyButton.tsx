@@ -22,6 +22,14 @@ export default function CalendlyButton({ children, className = '' }: CalendlyBut
   }, [])
 
   const openCalendly = () => {
+    // Track CTA click with Meta Pixel
+    if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
+      (window as any).fbq('track', 'InitiateCheckout', {
+        content_name: 'CTA Click - Book Discovery Call',
+        content_category: 'CTA'
+      })
+    }
+
     if (typeof window !== 'undefined' && (window as any).Calendly) {
       (window as any).Calendly.initPopupWidget({
         url: 'https://calendly.com/jerelle-co/30min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=12deba'

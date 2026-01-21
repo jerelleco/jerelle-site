@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import CustomCursor from '@/components/CustomCursor'
+import MetaPixel from '@/components/MetaPixel'
+import CalendlyTracker from '@/components/CalendlyTracker'
 
 const sofiaPro = localFont({
   src: [
@@ -37,6 +39,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sofiaPro.variable} ${oohBaby.variable}`}>
       <body className={sofiaPro.className}>
+        <MetaPixel />
+        <CalendlyTracker />
         <CustomCursor />
         {children}
       </body>

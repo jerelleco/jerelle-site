@@ -1,7 +1,5 @@
 import { Metadata } from 'next'
 import { getClients } from '@/lib/content'
-import MetaPixel from '@/components/MetaPixel'
-import CalendlyTracker from '@/components/CalendlyTracker'
 import LandingNav from '@/components/landing/LandingNav'
 import DiscoveryHero from '@/components/landing/DiscoveryHero'
 import TheProblem from '@/components/landing/TheProblem'
@@ -37,12 +35,6 @@ export default function DiscoveryPage() {
 
   return (
     <>
-      {/* Meta Pixel */}
-      <MetaPixel />
-
-      {/* Calendly Event Tracker */}
-      <CalendlyTracker />
-
       {/* Calendly CSS */}
       <link
         href="https://assets.calendly.com/assets/external/widget.css"
