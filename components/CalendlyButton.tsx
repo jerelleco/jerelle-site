@@ -22,11 +22,10 @@ export default function CalendlyButton({ children, className = '' }: CalendlyBut
   }, [])
 
   const openCalendly = () => {
-    // Track CTA click with Meta Pixel
+    // Track CTA click with Meta Pixel (Contact event - less valuable than Lead)
     if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
-      (window as any).fbq('track', 'InitiateCheckout', {
-        content_name: 'CTA Click - Book Discovery Call',
-        content_category: 'CTA'
+      (window as any).fbq('track', 'Contact', {
+        content_name: 'CTA Click - Book Discovery Call'
       })
     }
 
