@@ -55,20 +55,20 @@ export default function DiscoveryPage() {
           <DiscoveryHero />
         </div>
 
-        {/* Problem/Agitation - Scannable cards */}
-        <ProblemSection />
-
-        {/* Solution + USP */}
-        <SolutionSection />
+        {/* CTA Banner - Push for booking */}
+        <CtaBanner />
 
         {/* Social Proof - Using same component as main site */}
         <RotatingClients clients={clients} whiteLogos={whiteLogos} />
 
+        {/* Solution + USP */}
+        <SolutionSection />
+
         {/* Simple Process */}
         <ProcessSimple />
 
-        {/* CTA Banner - Push for booking */}
-        <CtaBanner />
+        {/* Problem/Agitation - Scannable cards */}
+        <ProblemSection />
 
         {/* Final CTA with Calendly Embed */}
         <FinalCTA />

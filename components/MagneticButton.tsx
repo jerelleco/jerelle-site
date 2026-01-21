@@ -9,14 +9,16 @@ interface MagneticButtonProps {
   href?: string
   onClick?: () => void
   type?: 'button' | 'submit' | 'reset'
+  asWrapper?: boolean
 }
 
-export default function MagneticButton({ 
-  children, 
-  className = '', 
-  href, 
+export default function MagneticButton({
+  children,
+  className = '',
+  href,
   onClick,
-  type = 'button'
+  type = 'button',
+  asWrapper = false
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -65,9 +67,11 @@ export default function MagneticButton({
         damping: 15,
         mass: 0.1
       }}
-      className="inline-block"
+      className={asWrapper ? `inline-block ${className}` : 'inline-block'}
     >
-      {href ? (
+      {asWrapper ? (
+        children
+      ) : href ? (
         <a href={href} onClick={handleClick} className={className}>
           {children}
         </a>

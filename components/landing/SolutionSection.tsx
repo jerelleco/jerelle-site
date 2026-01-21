@@ -4,15 +4,16 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import CalendlyButton from '@/components/CalendlyButton'
+import MagneticButton from '@/components/MagneticButton'
 
 export default function SolutionSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   const services = [
-    'Event coverage that captures real moments',
-    'Brand content that tells your story',
     'Ads that convert viewers into customers',
+    'Brand content that tells your story',
+    'Event coverage that captures real moments',
     'Social content that keeps you top-of-mind',
   ]
 
@@ -76,14 +77,16 @@ export default function SolutionSection() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.6 }}
             >
-              <CalendlyButton
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-xl hover:shadow-[#12deba]/30 transition-all"
-              >
-                See How This Works For You
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </CalendlyButton>
+              <MagneticButton asWrapper>
+                <CalendlyButton
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-xl hover:shadow-[#12deba]/30 transition-all"
+                >
+                  See How This Works For You
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </CalendlyButton>
+              </MagneticButton>
             </motion.div>
           </motion.div>
 

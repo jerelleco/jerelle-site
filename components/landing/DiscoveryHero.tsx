@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState, useRef } from 'react'
 import CalendlyButton from '@/components/CalendlyButton'
+import MagneticButton from '@/components/MagneticButton'
 
 export default function DiscoveryHero() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -61,19 +62,21 @@ export default function DiscoveryHero() {
             </div>
 
             {/* CTA Button */}
-            <CalendlyButton
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#12deba]/50 transition-all text-lg group"
-            >
-              Book Your Free Discovery Call
-              <svg
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            <MagneticButton asWrapper>
+              <CalendlyButton
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#12deba]/50 transition-all text-lg group"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </CalendlyButton>
+                Book Your Free Discovery Call
+                <svg
+                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </CalendlyButton>
+            </MagneticButton>
           </motion.div>
 
           {/* Right Column - Video */}
