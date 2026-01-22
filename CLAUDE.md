@@ -68,3 +68,26 @@ Framer Motion is used extensively:
   - `PageView` - automatic on page load
   - `Contact` - CTA button clicks (via `CalendlyButton`)
   - `Lead` - completed Calendly bookings (via `CalendlyTracker`)
+
+### Analytics System
+Comprehensive analytics across multiple platforms (see `.env.example` for setup):
+
+**Google Analytics 4** (`components/GoogleAnalytics.tsx`)
+- Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` in `.env.local`
+- Tracks all page views and custom events
+
+**Microsoft Clarity** (`components/MicrosoftClarity.tsx`)
+- Set `NEXT_PUBLIC_CLARITY_PROJECT_ID` in `.env.local`
+- Provides heatmaps, scroll maps, and session recordings
+
+**Custom Event Tracking** (`lib/analytics.ts`)
+- Unified tracking that sends to GA4, Meta Pixel, and Clarity
+- Helper functions: `trackGoalSelection`, `trackServiceView`, `trackCTAClick`, etc.
+- Automatic scroll depth tracking (25%, 50%, 75%, 100%)
+- Automatic time-on-page tracking
+
+**Analytics Hooks** (`hooks/useAnalytics.ts`)
+- `useScrollDepthTracking()` - Track scroll milestones
+- `useSectionTracking(name)` - Track when sections become visible
+- `useTimeOnPageTracking()` - Track engagement time
+- `useTrackSection(name)` - Ref callback for section visibility

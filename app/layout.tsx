@@ -4,6 +4,9 @@ import './globals.css'
 import CustomCursor from '@/components/CustomCursor'
 import MetaPixel from '@/components/MetaPixel'
 import CalendlyTracker from '@/components/CalendlyTracker'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
+import MicrosoftClarity from '@/components/MicrosoftClarity'
+import AnalyticsProvider from '@/components/AnalyticsProvider'
 
 const sofiaPro = localFont({
   src: [
@@ -39,10 +42,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sofiaPro.variable} ${oohBaby.variable}`}>
       <body className={sofiaPro.className}>
+        <GoogleAnalytics />
+        <MicrosoftClarity />
         <MetaPixel />
         <CalendlyTracker />
         <CustomCursor />
-        {children}
+        <AnalyticsProvider>
+          {children}
+        </AnalyticsProvider>
       </body>
     </html>
   )

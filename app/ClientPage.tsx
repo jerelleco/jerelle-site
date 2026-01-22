@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { trackGoalSelection } from '@/lib/analytics'
 import CinematicNav from '@/components/CinematicNav'
 import CinematicHero from '@/components/CinematicHero'
 import GoalHero from '@/components/GoalHero'
@@ -9,6 +10,7 @@ import ProcessSection from '@/components/ProcessSection'
 import ServicesReveal from '@/components/ServicesReveal'
 import RotatingClients from '@/components/RotatingClients'
 import AboutCinematic from '@/components/AboutCinematic'
+import WhoThisIsFor from '@/components/landing/WhoThisIsFor'
 import ContactDark from '@/components/ContactDark'
 import FooterMinimal from '@/components/FooterMinimal'
 import type { Service, Client, ProcessStep, ProcessGalleryImage } from '@/lib/content'
@@ -58,6 +60,8 @@ export default function ClientPage({ allServices, clients, whiteLogos, steps, ga
     }
     if (goal) {
       setUserJourney([...userJourney, `goal:${goalLabel[goal]}`])
+      // Track goal selection in analytics
+      trackGoalSelection(goalLabel[goal])
     }
   }
 
@@ -67,15 +71,6 @@ export default function ClientPage({ allServices, clients, whiteLogos, steps, ga
     setUserJourney([])
   }
 
-  // Determine section order based on goal
-  const getSectionOrder = () => {
-    if (!userGoal || userGoal === 'explore') return 'default'
-    // For specific goals, show services first
-    if (userGoal === 'customers' || userGoal === 'content') return 'services-first' // They want action/results
-    return 'trust-first' // Brand/event goals benefit from social proof first
-  }
-
-  const sectionOrder = getSectionOrder()
   const filteredServices = getFilteredServices()
 
   return (
@@ -86,32 +81,55 @@ export default function ClientPage({ allServices, clients, whiteLogos, steps, ga
       {/* Goal-specific hero section - only shows after selection */}
       {userGoal && <GoalHero goal={userGoal} />}
 
-      {sectionOrder === 'services-first' ? (
-        /* Action-oriented order */
+      {userGoal === 'customers' ? (
+        /* Customers: Action-oriented, wants results */
         <>
           <ServicesReveal services={filteredServices} />
           <PromoVideoSection />
           <ProcessSection steps={steps} galleryImages={galleryImages} />
+          <WhoThisIsFor />
           <RotatingClients clients={clients} whiteLogos={whiteLogos} />
           <AboutCinematic />
         </>
-      ) : sectionOrder === 'trust-first' ? (
-        /* Trust-building order */
+      ) : userGoal === 'brand' ? (
+        /* Brand: Quality-focused, cares about perception */
+        <>
+          <RotatingClients clients={clients} whiteLogos={whiteLogos} />
+          <PromoVideoSection />
+          <ServicesReveal services={filteredServices} />
+          <ProcessSection steps={steps} galleryImages={galleryImages} />
+          <WhoThisIsFor />
+          <AboutCinematic />
+        </>
+      ) : userGoal === 'event' ? (
+        /* Event: Time-sensitive, needs logistics clarity */
         <>
           <RotatingClients clients={clients} whiteLogos={whiteLogos} />
           <ServicesReveal services={filteredServices} />
+          <ProcessSection steps={steps} galleryImages={galleryImages} />
+          <PromoVideoSection />
+          <WhoThisIsFor />
+          <AboutCinematic />
+        </>
+      ) : userGoal === 'content' ? (
+        /* Content: Ongoing needs, thinking long-term */
+        <>
+          <ServicesReveal services={filteredServices} />
           <PromoVideoSection />
           <ProcessSection steps={steps} galleryImages={galleryImages} />
+          <WhoThisIsFor />
+          <RotatingClients clients={clients} whiteLogos={whiteLogos} />
           <AboutCinematic />
         </>
       ) : (
-        /* Default order */
+        /* Default/Explore: Browsing, needs value quickly */
         <>
           <ServicesReveal services={filteredServices} />
           <PromoVideoSection />
-          <ProcessSection steps={steps} galleryImages={galleryImages} />
-          <AboutCinematic />
           <RotatingClients clients={clients} whiteLogos={whiteLogos} />
+          <ProcessSection steps={steps} galleryImages={galleryImages} />
+          <WhoThisIsFor />
+          <AboutCinematic />
         </>
       )}
 

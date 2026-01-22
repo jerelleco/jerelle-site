@@ -123,6 +123,7 @@ export default function CinematicNav({ onLogoClick }: CinematicNavProps) {
             {/* Discovery Call Button */}
             <CalendlyButton
               className="relative px-6 py-2.5 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-full hover:shadow-2xl hover:shadow-[#FF6B6B]/50 transition-all text-sm overflow-hidden"
+              location="navigation"
             >
               Book a Call
             </CalendlyButton>
