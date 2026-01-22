@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import MagneticButton from './MagneticButton'
+import CalendlyInline from './CalendlyInline'
 
 type UserGoal = 'customers' | 'brand' | 'event' | 'content' | 'explore' | null
 
@@ -95,114 +96,126 @@ export default function ContactDark({ userGoal }: ContactDarkProps) {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl mx-auto"
-        >
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name */}
-            <div>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your name"
-                required
-                className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors"
-              />
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Left Column - Calendly Booking */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-4">Book a Discovery Call</h3>
+            <p className="text-white/60 mb-6">Pick a time that works for you. 30 minutes to see if we're a good fit.</p>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-4 overflow-hidden">
+              <CalendlyInline />
             </div>
+          </motion.div>
 
-            {/* Business */}
-            <div>
-              <input
-                type="text"
-                name="business"
-                value={formData.business}
-                onChange={handleChange}
-                placeholder="Your business"
-                className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors"
-              />
-            </div>
-
-            {/* Email and Phone row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Right Column - Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-4">Or Send a Message</h3>
+            <p className="text-white/60 mb-6">Prefer to write? I'll get back to you within 24 hours.</p>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Name */}
               <div>
                 <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
+                  type="text"
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
-                  placeholder="Email"
-                  className={`w-full px-6 py-4 bg-white/5 border rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors ${
-                    contactError ? 'border-red-500/50' : 'border-white/10'
-                  }`}
+                  placeholder="Your name"
+                  required
+                  className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors"
                 />
               </div>
+
+              {/* Business */}
               <div>
                 <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
+                  type="text"
+                  name="business"
+                  value={formData.business}
                   onChange={handleChange}
-                  placeholder="Phone"
-                  className={`w-full px-6 py-4 bg-white/5 border rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors ${
-                    contactError ? 'border-red-500/50' : 'border-white/10'
-                  }`}
+                  placeholder="Your business"
+                  className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors"
                 />
               </div>
+
+              {/* Email and Phone row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email"
+                    className={`w-full px-6 py-4 bg-white/5 border rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors ${
+                      contactError ? 'border-red-500/50' : 'border-white/10'
+                    }`}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Phone"
+                    className={`w-full px-6 py-4 bg-white/5 border rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors ${
+                      contactError ? 'border-red-500/50' : 'border-white/10'
+                    }`}
+                  />
+                </div>
+              </div>
+
+              {/* Contact error message */}
+              {contactError && (
+                <p className="text-red-400 text-sm">{contactError}</p>
+              )}
+
+              {/* Helper text */}
+              <p className="text-white/40 text-sm">At least one contact method required</p>
+
+              {/* Message - Dynamic placeholder based on goal */}
+              <div>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder={getMessagePlaceholder()}
+                  rows={4}
+                  className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors resize-none"
+                />
+              </div>
+
+              {/* Submit Button - MAGNETIC with proper padding */}
+              <MagneticButton
+                type="submit"
+                className="w-full px-8 py-4 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-xl text-lg relative overflow-hidden group"
+              >
+                <span className="relative z-10">Send it over</span>
+                <motion.div
+                  className="absolute inset-0 bg-white pointer-events-none"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.5 }}
+                  style={{ opacity: 0.2 }}
+                />
+              </MagneticButton>
+            </form>
+
+            <div className="mt-6 text-center">
+              <p className="text-white/40 mb-2">Rather just email directly?</p>
+              <a href="mailto:hello@jerelle.co" className="text-[#12deba] hover:underline text-lg">
+                hello@jerelle.co
+              </a>
             </div>
-
-            {/* Contact error message */}
-            {contactError && (
-              <p className="text-red-400 text-sm">{contactError}</p>
-            )}
-
-            {/* Helper text */}
-            <p className="text-white/40 text-sm">At least one contact method required</p>
-
-            {/* Message - Dynamic placeholder based on goal */}
-            <div>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder={getMessagePlaceholder()}
-                rows={4}
-                className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-[#12deba] transition-colors resize-none"
-              />
-            </div>
-
-            {/* Submit Button - MAGNETIC with proper padding */}
-            <MagneticButton
-              type="submit"
-              className="w-full px-8 py-4 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-xl text-lg relative overflow-hidden group"
-            >
-              <span className="relative z-10">Send it over</span>
-              <motion.div
-                className="absolute inset-0 bg-white pointer-events-none"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: '100%' }}
-                transition={{ duration: 0.5 }}
-                style={{ opacity: 0.2 }}
-              />
-            </MagneticButton>
-          </form>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.4 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-white/40 mb-2">Rather just email directly?</p>
-          <a href="mailto:hello@jerelle.co" className="text-[#12deba] hover:underline text-lg">
-            hello@jerelle.co
-          </a>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

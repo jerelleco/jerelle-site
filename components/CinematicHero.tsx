@@ -183,7 +183,7 @@ export default function CinematicHero({ onPathSelect }: CinematicHeroProps) {
               >
                 <MagneticButton
                   onClick={() => setShowPaths(true)}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#12deba]/50 transition-shadow text-lg"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-full hover:shadow-2xl hover:shadow-[#FF6B6B]/50 transition-shadow text-lg"
                 >
                   What brings you here today?
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

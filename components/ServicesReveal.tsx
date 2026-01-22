@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
 import type { Service } from '@/lib/content'
 import MagneticButton from './MagneticButton'
+import CalendlyButton from './CalendlyButton'
 import ImageCarousel from './ImageCarousel'
 
 interface ServicesRevealProps {
@@ -325,15 +326,14 @@ export default function ServicesReveal({ services }: ServicesRevealProps) {
                           transition={{ delay: 0.6 }}
                           className="absolute bottom-6 left-6 right-6 z-20"
                         >
-                          <MagneticButton
-                            href="#contact"
-                            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-xl hover:shadow-2xl hover:shadow-[#12deba]/50 transition-all text-base group"
+                          <CalendlyButton
+                            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-[#FF6B6B]/50 transition-all text-base group"
                           >
                             <span>Book a Discovery Call</span>
                             <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                          </MagneticButton>
+                          </CalendlyButton>
                         </motion.div>
                       </div>
 
@@ -433,7 +433,7 @@ export default function ServicesReveal({ services }: ServicesRevealProps) {
               </p>
               <MagneticButton
                 href="#contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#12deba]/50 transition-shadow text-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-full hover:shadow-2xl hover:shadow-[#FF6B6B]/50 transition-shadow text-lg"
               >
                 Get In Touch
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

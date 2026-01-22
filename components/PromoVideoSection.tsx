@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import MagneticButton from './MagneticButton'
+import CalendlyButton from './CalendlyButton'
 
 export default function PromoVideoSection() {
   const ref = useRef(null)
@@ -102,10 +103,9 @@ export default function PromoVideoSection() {
               </p>
             </div>
 
-            {/* CTA button - NOW MAGNETIC */}
-            <MagneticButton
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#12deba]/50 transition-all text-lg group"
+            {/* CTA button - Opens Calendly */}
+            <CalendlyButton
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-full hover:shadow-2xl hover:shadow-[#FF6B6B]/50 transition-all text-lg group"
             >
               Book Your Discovery Call
               <svg
@@ -116,7 +116,7 @@ export default function PromoVideoSection() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </MagneticButton>
+            </CalendlyButton>
           </motion.div>
 
           {/* Right Column - Phone Mockup */}
@@ -211,7 +211,7 @@ export default function PromoVideoSection() {
                               {/* Replay Button - ALSO MAGNETIC */}
                               <MagneticButton
                                 onClick={handleReplay}
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-lg hover:shadow-[#12deba]/50 transition-all text-sm"
+                                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#FF6B6B]/50 transition-all text-sm"
                               >
                                 <svg
                                   className="w-4 h-4"

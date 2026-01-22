@@ -4,6 +4,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import CalendlyButton from '@/components/CalendlyButton'
 
 
 interface CinematicNavProps {
@@ -119,20 +120,12 @@ export default function CinematicNav({ onLogoClick }: CinematicNavProps) {
             </div>
 
 
-            {/* Contact Button - Highlighted */}
-            <button
-              onClick={() => scrollToSection('contact')}
-              data-magnetic="true"
-              className="relative px-6 py-2.5 bg-gradient-to-r from-[#12deba] to-[#0ea088] text-black font-bold rounded-full hover:shadow-2xl hover:shadow-[#12deba]/50 transition-all text-sm overflow-hidden group"
+            {/* Discovery Call Button */}
+            <CalendlyButton
+              className="relative px-6 py-2.5 bg-gradient-to-r from-[#FF6B6B] to-[#E55555] text-white font-bold rounded-full hover:shadow-2xl hover:shadow-[#FF6B6B]/50 transition-all text-sm overflow-hidden"
             >
-              {/* Animated shine effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                animate={{ x: ['-100%', '200%'] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              />
-              <span className="relative z-10">Let's Talk</span>
-            </button>
+              Book a Call
+            </CalendlyButton>
           </div>
         </div>
       </div>
